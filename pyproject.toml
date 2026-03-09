@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-shield"
+version = "0.1.0"
+description = "A CLI security scanner for AI agent configurations, system prompts, and tool integrations."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "agent_shield contributors" }
+]
+keywords = ["security", "ai", "agent", "scanner", "cli", "prompt-injection", "mcp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    "typer[all]>=0.12",
+    "rich>=13.7",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+agent-shield = "agent_shield.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/example/agent_shield"
+Repository = "https://github.com/example/agent_shield"
+Issues = "https://github.com/example/agent_shield/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent_shield"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
